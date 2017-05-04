@@ -1,0 +1,1271 @@
+Pokemon Coroner;
+Pokemon Weeder;
+Pokemon Pander;
+Pokemon Bloonder;
+Pokemon Chocoriel;
+Pokemon Leiru;
+
+int Pantalla, PokemonToma, 
+  energia=1000;
+String HP= "HP "+energia+"/1000";
+
+PImage Inicio;
+PImage Seleccion;
+PImage TeclaC;
+PImage Ganador1;
+PImage TeclaU;
+PImage Ganador2;
+PImage TeclaM;
+PImage Ganador3;
+PImage TeclaA;
+PImage Ganador4;
+PImage TeclaN;
+PImage Ganador5;
+PImage TeclaD;
+PImage Ganador6;
+
+
+void setup(){
+  size(900,500);
+  Pantalla = 0;
+  background(0,255,247);
+  
+  Inicio=loadImage("Inicio.png");
+  Seleccion=loadImage("Seleccion.png");
+  TeclaC=loadImage("TeclaC.png");
+  Ganador1=loadImage("Ganador1.png");
+  TeclaU=loadImage("TeclaU.png");
+  Ganador2=loadImage("Ganador2.png");
+  TeclaM=loadImage("TeclaM.png");
+  Ganador3=loadImage("Ganador3.png");
+  TeclaA=loadImage("TeclaA.png.");
+  Ganador4=loadImage("Ganador4.png");
+  TeclaN=loadImage("TeclaN.png");
+  Ganador5=loadImage("Ganador5.png");
+  TeclaD=loadImage("TeclaD.png");
+  Ganador6=loadImage("Ganador6.png");
+  
+   //Pokemoncitos
+  Coroner = new Pokemon("Coroner",1000,70,220,4,0,0);
+  Weeder = new Pokemon("Weeder",1000,80,570,6,0,1);
+  Pander = new Pokemon("Pander",1000,270,80,5,1,2);
+  Bloonder = new Pokemon("Bloonder",1000,70,1370,3,3,3);
+  Chocoriel = new Pokemon("Chocoriel",1000,70,500,6,1,4);
+  Leiru = new Pokemon("Leiru",1000,80,370,5,2,5);
+}
+
+//Pantallas divididas
+void draw(){
+   println(Pantalla);
+   switch (Pantalla){
+     case 0:
+     image(Inicio,0,0);
+     if(mousePressed == false){
+     }else{
+       Pantalla = 1;
+     }
+     break;
+     
+     case 1:
+     image(Seleccion,0,0);
+     textSize(30);
+     fill(0);
+     text("Pusha tu poke",240,40);
+     translate(0,35);
+     fill(255,0,0,70);
+     ellipse(160,120,150,150);
+     fill(0);
+     textSize(30);
+     text("Coroner",55,130);
+     translate(85,60);
+     fill(0);
+        textSize(15);
+        text("Pusha C",38,119);
+        if(keyPressed){
+          if(key == 'c' || key == 'C'){
+          }
+        }
+     
+     noStroke();
+  fill(255,0,0,70);
+  ellipse(350,65,150,150);
+  fill(0);
+  textSize(30);
+  text("Weeder",285,70);
+  translate(270,-38);
+      fill(0);
+      textSize(15); 
+      text("Pusha W", 42,160); 
+      if (keyPressed){
+      if (key == 'w' || key == 'W'){
+      Pantalla +=2;
+      }
+      }
+        
+        noStroke();
+  fill(255,0,0,70);
+  ellipse(380,110,150,150);
+  fill(0);
+  textSize(30);
+  text("Pander",330,110);
+  translate(310,20);
+      fill(0);
+      textSize(15); 
+      text("Pusha P",30,140); 
+      if (keyPressed){
+      if (key == 'p' || key == 'P'){
+      Pantalla +=3; 
+   }
+  }
+  
+   noStroke();
+  fill(255,0,0,70);
+  ellipse(-500,300,150,150);
+  fill(0);
+  textSize(30);
+  text("Bloonder",-568,310);
+  translate(-580,250);
+      fill(0);
+      textSize(15); 
+      text("Pusha B",40,110); 
+      if (keyPressed){
+      if (key == 'b' || key == 'B'){
+      Pantalla +=4;  
+       }
+  }
+  
+  noStroke();
+  fill(255,0,0,70);
+  ellipse(360,50,150,150);
+  fill(0);
+  textSize(30);
+  text("Choriel",288,60);
+  translate(290,-20);
+      fill(0);
+      textSize(15); 
+      text("Pusha H",35,130); 
+      if (keyPressed){
+      if (key == 'h' || key == 'H'){
+      Pantalla +=5; 
+   }
+  }
+  
+  noStroke();
+  fill(255,0,0,70);
+  ellipse(370,70,150,150);
+  fill(0);
+  textSize(30);
+  text("Leiru",320,78);
+  translate(290,0);
+      fill(0);
+      textSize(15); 
+      text("Pusha L",40,130); 
+      if (keyPressed){
+      if (key == 'l' || key == 'L'){
+      Pantalla +=6; 
+   }
+  }
+  break;
+      
+     //1era pelea
+  case 2:
+  image(TeclaC,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(58,170,53);
+    text("HP "+" 1000/1000", 200, 440);
+    textSize(20);
+    fill(58,170,53);
+    text("HP "+" 1000/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha T para lastimar a tu oponente", 450, 30);
+  if (key == 'c' || key == 'C'){ 
+     translate(500,0);
+     fill(230,51,42);
+     text("Coroner",-300,100);
+     fill(0);
+     text("Weeder",190,100);
+  }
+   if(key =='t' || key=='T'){
+    image(TeclaC,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(47,198,40);
+    text("HP "+" 1000/1000", 200, 440);
+    textSize(20);
+    fill(137,174,46);
+    text("HP "+" 850/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha O para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+    }
+   if(key =='o' || key=='O'){
+    image(TeclaC,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(137,174,46);
+    text("HP "+" 850/1000", 200, 440);
+    textSize(20);
+    fill(137,174,46);
+    text("HP "+" 850/100",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha G para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+   }
+   if(key =='g' || key=='G'){
+    image(TeclaC,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(47,198,40);
+    text("HP "+" 650/1000", 200, 440);
+    textSize(20);
+    fill(252,234,16);
+    text("HP "+" 400/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha K para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+ 
+   if(key =='k' || key=='K'){
+    image(TeclaC,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(252,234,16);
+    text("HP "+" 400/1000", 200, 440);
+    textSize(20);
+    fill(252,234,16);
+    text("HP "+" 400/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha Y para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+   }
+   if(key =='y' || key=='Y'){
+    image(TeclaC,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(47,198,40);
+    text("HP "+" 400/100", 200, 440);
+    textSize(20);
+    fill(243,146,0);
+    text("HP "+" 200/100",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha J para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+   }
+   if(key =='j' || key=='J'){
+    image(TeclaC,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(243,146,0);
+    text("HP "+" 200/100", 200, 440);
+    textSize(20);
+    fill(243,146,0);
+    text("HP "+" 200/100",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha I", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+   }
+   if(key =='i' || key=='I'){
+    image(Ganador1,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(243,146,0);
+    text("HP "+" 200/1000", 200, 440);
+    textSize(20);
+    fill(255,0,0);
+    text("HP "+" 0/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(70);
+    fill(47,198,40);
+    textSize(70);
+    fill(47,198,40);
+    text("You are the Winner",465,240);
+    textSize(20);
+    fill(255);
+    text("Pusha Q para reiniciar",465,280);
+   }
+   if (keyPressed){
+     if(key =='q' || key =='Q'){
+      Pantalla = 0;
+     }
+   }
+     break;
+   }}}
+   
+   //2da batalla
+     case 3: 
+     image(TeclaU,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(58,170,53);
+    text("HP "+" 1000/1000", 200, 440);
+    textSize(20);
+    fill(58,170,53);
+    text("HP "+" 1000/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha T para lastimar a tu oponente", 450, 30);
+     if (key == 'u' || key == 'U'){
+     translate(460,0);
+     fill(252,234,16);
+     text("Pander",-260,80);
+     fill(47,198,40);
+     text("Bloonder",220,80);
+   }  
+   if(key =='t' || key=='T'){
+    image(TeclaU,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(47,198,40);
+    text("HP "+" 1000/1000", 200, 440);
+    textSize(20);
+    fill(137,174,46);
+    text("HP "+" 800/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha O para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+    }
+   if(key =='o' || key=='O'){
+    image(TeclaU,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(137,174,46);
+    text("HP "+" 800/1000", 200, 440);
+    textSize(20);
+    fill(137,174,46);
+    text("HP "+" 800/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha G para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+   }
+   if(key =='g' || key=='G'){
+    image(TeclaU,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(137,174,46);
+    text("HP "+" 800/1000", 200, 440);
+    textSize(20);
+    fill(252,234,16);
+    text("HP "+" 400/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha K para lastimar a tu oponente ", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+   }
+   if(key =='k' || key=='K'){
+    image(TeclaU,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(252,234,16);
+    text("HP "+" 400/1000", 200, 440);
+    textSize(20);
+    fill(252,234,16);
+    text("HP "+" 400/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha Y para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+   }
+   if(key =='y' || key=='Y'){
+    image(TeclaU,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(252,234,16);
+    text("HP "+" 400/1000", 200, 440);
+    textSize(20);
+    fill(243,146,0);
+    text("HP "+" 200/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha J para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+   }
+   if(key =='j' || key=='J'){
+    image(TeclaU,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(243,146,0);
+    text("HP "+" 200/1000", 200, 440);
+    textSize(20);
+    fill(243,146,0);
+    text("HP "+" 200/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha I para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+   }
+   if(key =='i' || key=='I'){
+    image(Ganador2,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(243,146,0);
+    text("HP "+" 200/1000", 200, 440);
+    textSize(20);
+    fill(255,0,0);
+    text("HP "+" 0/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(70);
+    fill(47,198,40);
+    textSize(70);
+    fill(47,198,40);
+    text("You are the winner",465,240);
+    textSize(20);
+    fill(255);
+    text("Pusha Q para reiniciar",465,280);
+   }
+   if (keyPressed){
+     if(key =='q' || key =='Q'){
+      Pantalla = 0;
+     }
+   }
+     break;
+     
+//3era batalla
+    case 4:
+    image(TeclaM,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(58,170,53);
+    text("HP "+" 1000/1000", 200, 440);
+    textSize(20);
+    fill(58,170,53);
+    text("HP "+" 1000/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha T para lastimar a tu oponente", 450, 30);
+    if (key == 'm' || key == 'M'){
+     translate(450,0);
+     fill(102,36,131);
+     text("Chocoriel",-280,100);
+     fill(230,51,42);
+     text("Leiru",210,100);
+   }
+   if(key =='t' || key=='T'){
+    image(TeclaM,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(47,198,40);
+    text("HP "+" 1000/1000", 200, 440);
+    textSize(20);
+    fill(137,174,46);
+    text("HP "+" 800/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha O para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+    }
+   if(key =='o' || key=='O'){
+    image(TeclaM,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(137,174,46);
+    text("HP "+" 800/1000", 200, 440);
+    textSize(20);
+    fill(137,174,46);
+    text("HP "+" 800/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha G para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+   }
+   if(key =='g' || key=='G'){
+    image(TeclaM,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(137,174,46);
+    text("HP "+" 800/1000", 200, 440);
+    textSize(20);
+    fill(252,234,16);
+    text("HP "+" 400/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha K para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+   }
+   if(key =='k' || key=='K'){
+    image(TeclaM,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(252,234,16);
+    text("HP "+" 400/1000", 200, 440);
+    textSize(20);
+    fill(252,234,16);
+    text("HP "+" 400/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha Y para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+   }
+   if(key =='y' || key=='Y'){
+    image(TeclaM,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(252,234,16);
+    text("HP "+" 400/1000", 200, 440);
+    textSize(20);
+    fill(243,146,0);
+    text("HP "+" 200/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha J para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+   }
+   if(key =='j' || key=='J'){
+    image(TeclaM,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(243,146,0);
+    text("HP "+" 200/1000", 200, 440);
+    textSize(20);
+    fill(243,146,0);
+    text("HP "+" 200/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha I para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+   }
+   if(key =='i' || key=='I'){
+    image(Ganador3,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(243,146,0);
+    text("HP "+" 200/1000", 200, 440);
+    textSize(20);
+    fill(255,0,0);
+    text("HP "+" 0/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(70);
+    fill(47,198,40);
+    textSize(70);
+    fill(47,198,40);
+    text("You are the winner",465,240);
+    textSize(20);
+    fill(255);
+    text("Pusha Q para reiniciar",465,280);
+   }
+   if (keyPressed){
+     if(key =='q' || key =='Q'){
+      Pantalla = 0;
+     }
+   }
+    break;
+    
+//CUARTO DUELO.
+    case 5:
+    image(TeclaA,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(58,170,53);
+    text("HP "+" 1000/1000", 200, 440);
+    textSize(20);
+    fill(58,170,53);
+    text("HP "+" 1000/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha T para lastimar a tu oponente", 450, 30);
+     if (key == 'a' || key == 'A'){
+     translate(450,-10);
+     fill(47,198,40);
+     text("Weeder",-230,110);
+     fill(183,21,37);
+     text("Pander",240,110);
+   }
+   if(key =='t' || key=='T'){
+    image(TeclaA,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(47,198,40);
+    text("HP "+" 1000/1000", 200, 440);
+    textSize(20);
+    fill(137,174,46);
+    text("HP "+"800/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha O para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+    }
+   if(key =='o' || key=='O'){
+    image(TeclaA,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(137,174,46);
+    text("HP "+" 800/1000", 200, 440);
+    textSize(20);
+    fill(137,174,46);
+    text("HP "+" 800/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha G para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+   }
+   if(key =='g' || key=='G'){
+    image(TeclaA,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(137,174,46);
+    text("HP "+" 800/1000", 200, 440);
+    textSize(20);
+    fill(252,234,16);
+    text("HP "+" 400/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha K para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+   }
+   if(key =='k' || key=='K'){
+    image(TeclaA,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(252,234,16);
+    text("HP "+" 400/1000", 200, 440);
+    textSize(20);
+    fill(252,234,16);
+    text("HP "+" 400/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha Y para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+   }
+   if(key =='y' || key=='Y'){
+    image(TeclaA,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(252,234,16);
+    text("HP "+" 400/1000", 200, 440);
+    textSize(20);
+    fill(243,146,0);
+    text("HP "+" 200/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha J para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+   }
+   if(key =='j' || key=='J'){
+    image(TeclaA,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(243,146,0);
+    text("HP "+" 200/1000", 200, 440);
+    textSize(20);
+    fill(243,146,0);
+    text("HP "+" 200/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha I para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+   }
+   if(key =='i' || key=='I'){
+    image(Ganador4,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(243,146,0);
+    text("HP "+" 200/1000", 200, 440);
+    textSize(20);
+    fill(255,0,0);
+    text("HP "+" 0/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(70);
+    fill(47,198,40);
+    textSize(70);
+    fill(47,198,40);
+    text("You are the winner",465,240);
+    textSize(20);
+    fill(255);
+    text("Pusha Q para reiniciar",465,280);
+   }
+   if (keyPressed){
+     if(key =='q' || key =='Q'){
+      Pantalla = 0;
+     }
+   }
+    break;
+    
+    
+ //5ta batalla
+    case 6:
+    image(TeclaN,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(58,170,53);
+    text("HP "+" 1000/1000", 200, 440);
+    textSize(20);
+    fill(58,170,53);
+    text("HP "+" 1000/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha T para lastimar a tu oponente", 450, 30);
+    if (key == 'g' || key == 'G'){
+     translate(500,0);
+     fill(0);
+     text("Bloonder",-300,100);
+     fill(102,36,131);
+     text("Coroner",190,100);
+   }
+   if(key =='t' || key=='T'){
+    image(TeclaN,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(47,198,40);
+    text("HP "+" 1000/1000", 200, 440);
+    textSize(20);
+    fill(137,174,46);
+    text("HP "+" 800/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha O para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+    }
+   if(key =='o' || key=='O'){
+    image(TeclaN,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(137,174,46);
+    text("HP "+" 800/1000", 200, 440);
+    textSize(20);
+    fill(137,174,46);
+    text("HP "+" 800/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha G para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+   }
+   if(key =='g' || key=='G'){
+    image(TeclaN,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(137,174,46);
+    text("HP "+" 800/1000", 200, 440);
+    textSize(20);
+    fill(252,234,16);
+    text("HP "+" 400/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha K para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+   }
+   if(key =='k' || key=='K'){
+    image(TeclaN,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(252,234,16);
+    text("HP "+" 400/1000", 200, 440);
+    textSize(20);
+    fill(252,234,16);
+    text("HP "+" 400/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha Y para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+   }
+   if(key =='y' || key=='Y'){
+    image(TeclaN,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(252,234,16);
+    text("HP "+" 400/1000", 200, 440);
+    textSize(20);
+    fill(243,146,0);
+    text("HP "+" 200/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha J para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+   }
+   if(key =='j' || key=='J'){
+    image(TeclaN,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(243,146,0);
+    text("HP "+" 200/1000", 200, 440);
+    textSize(20);
+    fill(243,146,0);
+    text("HP "+" 200/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha I para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+   }
+   if(key =='i' || key=='I'){
+    image(Ganador5,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(243,146,0);
+    text("HP "+" 200/1000", 200, 440);
+    textSize(20);
+    fill(255,0,0);
+    text("HP "+" 0/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(70);
+    fill(47,198,40);
+    textSize(70);
+    fill(47,198,40);
+    text("You are the winner",465,240);
+    textSize(20);
+    fill(255);
+    text("Pusha Q para reiniciar",465,280);
+   }
+   if (keyPressed){
+     if(key =='q' || key =='Q'){
+      Pantalla = 0;
+     }
+   }
+    break;
+    
+//6ta batalla
+    case 7:
+    image(TeclaD,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(58,170,53);
+    text("HP "+" 1000/1000", 200, 440);
+    textSize(20);
+    fill(58,170,53);
+    text("HP "+" 1000/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha T para lastimar a tu oponente", 450, 30);
+   if (key == 'd' || key == 'D'){
+     translate(460,0);
+     fill(183,21,37);
+     text("Leiru",-230,80);
+     fill(252,234,16);
+     text("Chocoriel",200,80);
+   }
+   if(key =='t' || key=='T'){
+    image(TeclaD,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(47,198,40);
+    text("HP "+" 1000/1000", 200, 440);
+    textSize(20);
+    fill(137,174,46);
+    text("HP "+" 800/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha O para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+    }
+   if(key =='o' || key=='O'){
+    image(TeclaD,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(137,174,46);
+    text("HP "+" 800/1000", 200, 440);
+    textSize(20);
+    fill(137,174,46);
+    text("HP "+" 800/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha G para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+   }
+   if(key =='g' || key=='G'){
+    image(TeclaD,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(137,174,46);
+    text("HP "+" 800/1000", 200, 440);
+    textSize(20);
+    fill(252,234,16);
+    text("HP "+" 800/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha K para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+   }
+   if(key =='k' || key=='K'){
+    image(TeclaD,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(252,234,16);
+    text("HP "+" 400/1000", 200, 440);
+    textSize(20);
+    fill(252,234,16);
+    text("HP "+" 40/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha Y para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+   }
+   if(key =='y' || key=='Y'){
+    image(TeclaD,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(252,234,16);
+    text("HP "+" 400/1000", 200, 440);
+    textSize(20);
+    fill(243,146,0);
+    text("HP "+" 200/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha J para lastimar a tu oponenete", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+   }
+   if(key =='j' || key=='J'){
+    image(TeclaD,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(243,146,0);
+    text("HP "+" 200/1000", 200, 440);
+    textSize(20);
+    fill(243,146,0);
+    text("HP "+" 200/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(30);
+    text("Pusha I para lastimar a tu oponente", 450, 30);
+    textSize(70);
+    fill(47,198,40);
+   }
+   if(key =='i' || key=='I'){
+    image(Ganador6,0,0);
+    fill(58,170,53);
+    textSize(20);
+    fill(243,146,0);
+    text("HP "+" 200/1000", 200, 440);
+    textSize(20);
+    fill(255,0,0);
+    text("HP "+" 0/1000",700,440);
+    fill(0);
+    textAlign(CENTER);
+    textSize(70);
+    fill(47,198,40);
+    textSize(70);
+    fill(47,198,40);
+    text("You are the winner",465,240);
+    textSize(20);
+    fill(255);
+    text("Pusha Q para reiniciar",465,280);
+   }
+   if (keyPressed){
+     if(key =='q' || key =='Q'){
+      Pantalla = 0;
+     }
+   }
+    break;
+  }
+  
+  void seleccion(){
+
+}
+class Pokemon {
+  String nombre;
+  int hp;
+  int ataque;
+  int defensa;
+  int elemento;
+  int evolucion;
+  int dibujo;
+  
+  
+  Pokemon(String nombre_, int hp_, int ataque_, int defensa_, int elemento_, int evolucion_, int dibujo_){
+    nombre = nombre_;
+    hp = hp_;
+    ataque = ataque_;
+    defensa = defensa_;
+    elemento = elemento_;
+    evolucion = evolucion_;
+    dibujo = dibujo_;  
+}
+
+//Dibujos de mis pokemones
+  void Dibujar(){
+    switch(dibujo){
+      case 0: //Coroner
+      noStroke();
+      pushMatrix();
+      translate(75,60);
+      scale(2.2);
+      
+      fill(255);//blanco
+      rect(20,25,5,5); rect(100,25,5,5);
+      
+      fill(34,224,224);//azul claro
+      rect(25,35,5,5); rect(95,35,5,5);
+      
+      fill(114,52,10);//café
+      rect(20,30,5,10); rect(30,30,5,10); rect(25,30,5,5); rect(90,30,5,10); rect(100,30,5,10); rect(95,30,5,5);
+      
+      fill(0);//negro
+      rect(20,20,5,5); rect(15,25,5,5); rect(25,25,5,5);rect(95,25,5,5); rect(100,20,5,5); rect(105,25,5,5); rect(10,55,10,5); rect(15,60,15,5); rect(105,55,10,5); rect(95,60,15,5); rect(50,70,5,15); rect(45,80,5,10); 
+      rect(70,70,5,15); rect(75,80,5,10);
+      
+      fill(255,255,67);//amarillo
+      rect(50,5,25,5); rect(30,60,10,5); rect(35,65,55,5);rect(85,60,10,5);
+      
+      fill(127,3,3); //rojo quemado
+      rect(45,35,5,10); rect(50,30,5,5);rect(55,25,5,5); rect(60,30,5,5); rect(65,25,5,5);rect(70,30,5,5); rect(75,35,5,10); rect(70,45,5,5); rect(65,50,5,5); rect(60,55,5,5); rect(55,50,5,5);rect(50,45,5,5);
+      
+      fill(255,0,0);//rojo
+      rect(50,35,5,10); rect(55,30,5,20); rect(60,35,5,20); rect(65,30,5,20); rect(70,35,5,10);
+      
+      fill(136,214,0); //verde claro
+      rect(45,10,35,5); rect(50,15,25,5); rect(45,20,35,5); rect(40,25,15,5); rect(60,25,5,5); rect(70,25,15,5); rect(45,30,5,5);
+      rect(75,30,5,5); rect(40,35,5,5); rect(80,35,5,5); rect(35,40,10,5); rect(80,40,10,5);  rect(40,45,10,5); rect(75,45,10,5); rect(35,50,20,5); rect(70,50,20,5); rect(30,55,30,5); rect(65,55,30,5); rect(40,60,45,5);
+      popMatrix();
+      
+      break;
+      
+      case 1:
+      //Weeder
+      noStroke();
+      pushMatrix();
+      translate(370,25);
+      scale(2);
+      
+      fill(34,224,224); //azul
+      rect(45,5,5,5);
+      
+      fill(255,255,67); //amarillo
+      rect(40,5,5,5);rect(50,5,5,5); rect(45,10,5,5);rect(40,35,5,5);rect(60,35,5,5);
+      
+      fill(255,0,0); //rojo
+      rect(35,5,5,5); rect(55,5,10,5); rect(50,10,10,5); rect(35,10,10,5); rect(40,15,15,5);rect(45,20,5,5);rect(40,40,5,5); rect(60,40,5,5);
+      
+      fill(127,3,3); //rojo quemado
+      rect(60,10,5,5); rect(55,15,5,5); rect(35,15,5,5); rect(50,20,5,5); rect(40,20,5,5);rect(45,25,5,5);
+      
+      fill(136,214,0); //verde
+      rect(25,20,5,10); rect(30,15,5,15); rect(35,20,5,10); rect(40,25,5,5); rect(50,25,30,5);  rect(55,20,25,5); rect(60,15,15,5);  rect(65,10,5,5);
+      
+      fill(0); //negro
+      rect(10,50,5,5); rect(15,45,5,30); rect(20,70,5,5); rect(25,70,5,5); rect(35,115,5,5); rect(40,95,5,25); rect(60,95,5,25); rect(65,115,5,5); rect(75,70,15,5); rect(85,45,5,25); rect(90,50,5,5); rect(35,35,5,10); 
+      rect(45,35,5,10); rect(55,35,5,10); rect(65,35,5,10);
+      
+      fill(114,52,10);//cafe
+      rect(35,30,15,5);  rect(55,30,15,5);rect(40,55,5,15);rect(45,60,15,5); rect(60,55,5,15);
+      
+      fill(244,86,176); //rosa
+      rect(45,55,15,5);rect(45,65,15,5);
+      
+      fill(181,126,77);//arena
+      rect(25,30,5,35); rect(30,30,5,45); rect(35,45,5,40); rect(40,45,5,10); rect(40,70,5,25); rect(45,45,5,15); rect(45,70,5,30); rect(50,30,5,30); rect(50,70,5,35); rect(55,45,5,15); 
+      rect(55,70,5,30); rect(60,45,5,10);  rect(60,70,5,25); rect(65,45,5,40); rect(70,30,5,45); rect(75,30,5,35);
+      popMatrix();
+      
+      break;
+      
+      case 2:
+      //Pander
+      noStroke();
+      pushMatrix();
+      translate(720,50);
+      scale(2);
+      
+      fill(0);
+      rect(15,5,15,5);rect(10,10,25,5);rect(10,15,10,5); rect(10,20,10,5); rect(15,25,15,5);  rect(30,15,10,5); rect(30,20,5,5); rect(20,30,5,25); rect(25,55,5,5);rect(30,60,5,5); 
+      rect(35,65,65,5); rect(100,60,5,5); rect(105,55,5,5);rect(110,30,5,25); rect(105,25,15,5); rect(100,20,5,5);rect(95,15,10,5);rect(100,10,25,5); rect(105,5,15,5);
+      rect(120,10,5,15); rect(115,15,5,15);rect(85,10,10,5);rect(50,5,35,5); rect(40,10,10,5); rect(30,70,75,5); rect(25,75,5,15); rect(30,74,5,20); rect(35,85,5,25); rect(40,85,5,15); 
+      rect(40,105,5,10); rect(45,80,5,20); rect(45,110,5,10); rect(50,85,5,15); rect(50,110,5,10); rect(55,110,5,10); rect(60,110,15,5); rect(75,110,5,10);rect(80,110,5,10);rect(80,85,5,15);
+      rect(85,80,5,20);rect(85,110,5,10); rect(90,85,5,15); rect(90,105,5,10); rect(95,85,5,25); rect(100,75,5,20); rect(105,75,5,15);
+      //ojito1
+      rect(30,35,5,10);rect(35,30,10,5);rect(45,35,5,10);rect(40,40,5,10); rect(35,45,5,5);
+      //trompita
+      rect(50,50,5,5);rect(55,55,10,5);rect(60,45,15,5);rect(65,50,5,5); rect(70,55,10,5); rect(80,50,5,5);
+      //ojito2
+      rect(85,35,5,10);rect(90,30,10,5);rect(100,35,5,10); rect(90,40,5,10); rect(95,45,5,5);
+      
+      fill(34,224,224); //azul
+      rect(35,35,10,5);rect(35,40,5,5); rect(90,35,10,5);rect(95,40,5,5);
+      
+      fill(244,86,176); //rosa
+      rect(20,15,10,5);rect(20,20,10,5);rect(105,15,10,5);rect(105,20,10,5);rect(65,55,5,5);rect(30,50,10,5); rect(95,50,10,5); 
+      popMatrix();
+      
+      break;
+      
+      case 3:
+      //Bloonder
+      noStroke();
+      pushMatrix();
+      translate(80,300);
+      scale(2);
+      
+      fill(147,96,55); //café
+      rect(15,30,5,5);rect(10,35,5,5);rect(30,15,5,5);rect(25,20,5,5);
+      
+      fill(255);//blanco
+      rect(35,25,5,5);rect(20,40,5,5);rect(15,60,10,5);rect(20,65,30,5);rect(45,60,10,5);rect(55,50,5,10);rect(60,25,5,30);rect(55,20,5,10);
+      
+      fill(0);//negro
+      rect(30,20,10,5);rect(30,25,5,5);rect(15,35,10,5);rect(15,40,5,5);rect(55,75,5,20);rect(55,90,15,5);rect(35,80,5,15);rect(35,90,15,5);rect(25,55,5,5);rect(35,50,5,5);rect(45,40,5,5);rect(50,30,5,5);
+      
+      fill(106,219,46);//verde claro
+      rect(55,15,5,5);rect(60,20,5,5);rect(65,25,5,30);rect(60,55,5,10);rect(55,60,5,5);rect(50,65,5,5);rect(20,70,30,5);rect(15,65,5,5);rect(10,60,5,5);
+      
+      fill(40,81,18); //verde oscuro
+      rect(60,15,5,5); rect(65,20,5,5);rect(70,25,5,30);rect(65,55,5,10);rect(60,65,10,5);rect(55,65,10,5);rect(50,70,10,5);rect(20,75,30,5);rect(15,70,5,5);rect(10,65,5,5);
+      
+      fill(255,0,0); //rojo
+      rect(55,30,5,20);rect(50,20,5,10);rect(50,35,5,25);rect(45,25,5,15);rect(45,45,5,15);rect(40,30,5,35);rect(35,35,5,15);rect(35,55,5,10); rect(30,40,5,25); rect(25,45,5,10); rect(25,60,5,5);rect(20,50,5,10);rect(15,55,5,5);
+      popMatrix();
+      
+      break;
+      
+      case 4:
+      //Chocoriel
+      noStroke();
+      pushMatrix();
+      translate(380,290);
+      scale(2);
+      
+     fill(147,96,55); //cafe
+      rect(30,30,5,5);rect(35,25,5,10);rect(40,15,5,20);rect(45,15,5,20);rect(50,15,5,20);rect(55,15,5,20);rect(60,15,5,20);rect(65,15,5,20);rect(15,60,5,5);rect(10,65,20,5);rect(80,60,5,5);rect(70,65,20,5);rect(40,85,20,5);rect(45,90,10,5);
+      
+      fill(255); //blanco
+      rect(15,35,5,5); rect(20,30,5,10); rect(25,30,5,15);rect(30,35,5,10);rect(35,35,5,5); rect(40,35,5,15); rect(45,35,5,5); rect(50,35,5,5); rect(55,35,5,15); rect(60,35,5,5); rect(65,35,5,10); rect(70,30,5,15); rect(75,30,5,10);rect(80,35,5,5);
+      
+      fill(53,123,175); //azul
+      rect(30,45,5,20); rect(30,70,5,15); rect(35,80,5,5); rect(40,50,5,5);rect(40,65,5,10);rect(40,80,5,5);rect(45,40,5,30);rect(50,40,5,30);rect(55,50,5,10);rect(55,65,5,10);
+      rect(55,80,5,5);rect(60,80,5,5);rect(65,45,5,20);rect(65,70,5,15);rect(45,80,5,5); rect(50,80,5,5);
+      
+      fill(234,234,28); //amarillo
+      rect(35,40,5,20);rect(35,65,5,15);rect(60,40,5,15);rect(60,65,5,15);
+      
+      fill(0); //negro
+      rect(40,55,5,10);rect(35,60,5,5);rect(60,55,5,10);rect(55,60,5,5);rect(40,75,20,5);
+      
+      fill(142,16,85);
+      rect(30,65,5,5);rect(65,65,5,5);
+      
+      fill(255,0,0);
+      rect(45,70,10,5);
+      popMatrix();
+      
+      break;
+      
+      case 5:
+      //Leiru
+      noStroke();
+      pushMatrix();
+      translate(700,290);
+      scale(2);
+      
+      fill(255); //blanco
+      rect(50,105,10,5);
+      
+      fill(147,96,55); //cafe
+      rect(25,90,5,35);rect(30,90,5,30);rect(35,90,5,25);rect(40,95,5,25);rect(45,90,5,5);rect(45,100,5,5);rect(45,110,5,15);rect(50,90,5,10);rect(50,115,5,10);rect(55,90,5,10);rect(55,115,5,10);rect(60,90,5,5);
+      rect(60,100,5,5);rect(60,110,5,15);rect(65,95,5,25);rect(70,90,5,25);rect(75,90,5,30);rect(80,90,5,35);
+      //short
+      rect(35,130,40,5);rect(35,135,15,5);rect(60,135,15,5);
+      //gorra
+      rect(35,5,40,5);rect(30,10,20,5);rect(55,10,25,5);rect(25,15,20,5);rect(60,15,25,5);rect(20,20,20,5);rect(65,20,20,5);rect(15,25,15,5);rect(80,25,15,5);
+      
+      fill(106,214,46); //verde
+      rect(10,30,25,5);rect(30,25,15,5);rect(60,25,20,5);rect(75,30,25,5);rect(40,90,5,5);rect(45,95,5,5);rect(50,100,10,5);rect(60,95,5,5);rect(65,90,5,5);rect(45,105,5,5);rect(60,105,5,5);rect(50,110,10,5);
+     
+     fill(0); //negro
+     rect(20,35,30,5);rect(20,40,30,5);rect(20,45,30,5);rect(20,50,30,5);rect(50,45,10,5);rect(60,35,30,5);rect(60,40,30,5);rect(60,45,30,5);rect(60,50,30,5);
+     //papos
+     rect(30,140,10,5);rect(25,145,15,5);rect(20,150,25,5);rect(70,140,10,5);rect(70,145,15,5);rect(65,150,25,5);
+     
+     fill(40,81,18); //verde fuerte
+     rect(50,10,5,5); rect(45,15,15,5);rect(40,20,25,5);rect(45,25,15,5);
+     
+     fill(142,16,85); //rosa
+     rect(50,55,10,5);
+     
+     fill(234,234,28); //amarillo
+     rect(35,125,40,5);
+     
+     fill(219,160,106); //carne
+     rect(30,120,15,5);rect(35,115,5,5);rect(65,120,15,5);rect(70,115,5,5);rect(50,80,10,5);rect(50,85,10,5);rect(35,30,40,5);rect(50,35,10,5);rect(50,40,10,5);rect(50,50,10,5);rect(25,55,25,5);rect(60,55,25,5);
+     rect(30,60,50,5);rect(35,65,10,5);rect(65,65,10,5);rect(40,70,30,5);rect(45,75,20,5);
+     
+     fill(255,0,0); //rojo
+     rect(45,65,20,5);
+      popMatrix();
+      
+      break;
+      
+    }}}
